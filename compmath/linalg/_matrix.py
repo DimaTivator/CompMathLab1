@@ -1,6 +1,6 @@
 class Matrix:
     def __init__(self, rows):
-        self._rows = rows
+        self.rows = rows
         self.num_rows = len(rows)
         self.num_cols = len(rows[0])
 
@@ -30,7 +30,7 @@ class Matrix:
         for i in range(self.num_rows):
             for j in range(other.num_cols):
                 for k in range(self.num_cols):
-                    result[i][j] += self._rows[i][k] * other[k][j]
+                    result[i][j] += self.rows[i][k] * other[k][j]
 
         return Matrix(result)
 
@@ -96,28 +96,28 @@ class Matrix:
         d = 0
         for j in range(self.num_cols):
             sign = (-1) ** j
-            sub_matrix = [row[:j] + row[j + 1:] for row in self._rows[1:]]
+            sub_matrix = [row[:j] + row[j + 1:] for row in self.rows[1:]]
             d += sign * self[0][j] * Matrix(sub_matrix).det_slow()
 
         return d
 
     def __getitem__(self, index):
-        return self._rows[index]
+        return self.rows[index]
 
     def __setitem__(self, index, value):
-        self._rows[index] = value
+        self.rows[index] = value
 
     def __eq__(self, other):
-        return self._rows == other._rows
+        return self.rows == other.rows
 
     def __str__(self):
-        return '\n'.join([' '.join(map(str, row)) for row in self._rows])
+        return '\n'.join([' '.join(map(str, row)) for row in self.rows])
 
     def __len__(self):
         return self.num_rows
 
     def __iter__(self):
-        return iter(self._rows)
+        return iter(self.rows)
 
     def copy(self):
-        return Matrix([row[:] for row in self._rows])
+        return Matrix([row[:] for row in self.rows])
