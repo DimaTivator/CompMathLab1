@@ -33,12 +33,6 @@ def get_diagonally_dominant(A: Matrix):
     for permutation in itertools.permutations(range(a.num_cols)):
         # rearrange the columns
         new_a = Matrix([[row[i] for i in permutation] for row in a])
-
-        print(permutation)
-        print()
-        print(new_a)
-        print()
-
         if is_diagonally_dominant(new_a):
             return new_a
 
