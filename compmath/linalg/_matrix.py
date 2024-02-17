@@ -101,9 +101,6 @@ class Matrix:
 
         return d
 
-    def is_diagonally_predominant(self):
-        pass
-
     def __getitem__(self, index):
         return self._rows[index]
 

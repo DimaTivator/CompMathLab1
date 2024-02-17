@@ -1,4 +1,4 @@
-from compmath import Matrix
+from compmath.linalg import Matrix
 
 
 def abs_deviation(prev: list, cur: list, eps=1e-5) -> bool:
