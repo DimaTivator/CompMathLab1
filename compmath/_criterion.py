@@ -6,7 +6,7 @@ def abs_deviation(prev: list, cur: list):
 
 
 def relative_diff(prev: list, cur: list):
-    return max([abs((prev[i] - cur[i]) / cur[i]) for i in range(len(prev))])
+    return max([abs((prev[i] - cur[i]) / cur[i]) if cur != 0 else float('inf') for i in range(len(prev))])
 
 
 def discrepancy_diff(A: Matrix, b: Matrix, x: Matrix):
