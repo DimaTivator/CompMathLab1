@@ -65,7 +65,10 @@ class Matrix:
 
             # Make the elements below the diagonal zero
             for j in range(i + 1, self.num_rows):
-                factor = -matrix[j][i] / matrix[i][i]
+                try:
+                    factor = -matrix[j][i] / matrix[i][i]
+                except ZeroDivisionError:
+                    factor = 0
                 for k in range(i, self.num_rows):
                     matrix[j][k] += factor * matrix[i][k]
 
