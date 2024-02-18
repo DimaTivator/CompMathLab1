@@ -28,6 +28,12 @@ class SimpleIterationApp(QMainWindow):
     def initUI(self):
         self.setWindowTitle("Simple Iteration Method")
 
+        # add a user guide hyperlink
+        self.guide_link_label.setText("<a href='https://github.com/DimaTivator/CompMathLab1/blob/main/README.md'>"
+                                      + self.guide_link_label.text() + "</a>")
+        self.guide_link_label.setTextInteractionFlags(Qt.TextBrowserInteraction)
+        self.guide_link_label.setOpenExternalLinks(True)
+
         # matrix and vector input buttons
         self.A_input_button.clicked.connect(lambda: MatrixInputWindow().exec_())
         self.b_input_button.clicked.connect(lambda: VectorInputWindow().exec_())
