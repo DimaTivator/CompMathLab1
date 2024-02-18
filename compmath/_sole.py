@@ -146,12 +146,14 @@ class SimpleIterationSolver(BasicSolver):
         C = Matrix([[-A[i][j] / A[i][i] if i != j else 0 for j in range(n)] for i in range(n)])
         b = Matrix([[b[i][0] / A[i][i]] for i in range(n)])
 
-        # add at start [0, 0, ..., 0]
+        res = [([val for val in x], '-')]
 
         for _ in range(self.max_iter):
             prev = x[:][0]
             x = C * x + b
             d = self.crit_func(x[:][0], prev)
-            # print([val for val in x], d)
+            res.append(([val for val in x], d))
             if d < self.eps:
                 break
+
+        return res
