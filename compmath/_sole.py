@@ -6,7 +6,7 @@ from dataclasses import dataclass
 
 @dataclass
 class SoleData:
-    _n: int = 10
+    _n: int = 1
     _m: int = None
     _A: Matrix = None
     _b: Matrix = None
@@ -15,8 +15,22 @@ class SoleData:
         if self._m is None:
             self._m = self._n
 
-        self._A = Matrix([[0 for _ in range(self._m)] for _ in range(self._n)])
-        self._b = Matrix([[0] for _ in range(self._n)])
+        if self._A is not None:
+            old_A = self.A.copy()
+            self._A = Matrix([[0 for _ in range(self._m)] for _ in range(self._n)])
+
+            self._A = Matrix([[old_A[i][j] if i < old_A.shape[0] and j < old_A.shape[1] else 0
+                               for j in range(self._m)] for i in range(self._n)])
+        else:
+            self._A = Matrix([[0 for _ in range(self._m)] for _ in range(self._n)])
+
+        if self._b is not None:
+            old_b = self.b.copy()
+            self._b = Matrix([[0] for _ in range(self._n)])
+
+            self._b = Matrix([old_b[i] if i < old_b.shape[0] else [0] for i in range(self._n)])
+        else:
+            self._b = Matrix([[0] for _ in range(self._n)])
 
     @property
     def n(self):
