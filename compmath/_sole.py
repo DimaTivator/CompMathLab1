@@ -1,6 +1,57 @@
 from abc import ABC, abstractmethod
 from compmath.linalg import Matrix, get_diagonally_dominant
 from compmath import _criterion
+from dataclasses import dataclass
+
+
+@dataclass
+class SoleData:
+    _n: int = 10
+    _m: int = None
+    _A: Matrix = None
+    _b: Matrix = None
+
+    def __post_init__(self):
+        if self._m is None:
+            self._m = self._n
+
+        self._A = Matrix([[0 for _ in range(self._m)] for _ in range(self._n)])
+        self._b = Matrix([[0] for _ in range(self._n)])
+
+    @property
+    def n(self):
+        return self._n
+
+    @n.setter
+    def n(self, value):
+        if value is not None:
+            self._n = value
+            self.__post_init__()
+
+    @property
+    def m(self):
+        return self._m
+
+    @m.setter
+    def m(self, value):
+        self._m = value
+        self.__post_init__()
+
+    @property
+    def A(self):
+        return self._A
+
+    def set_A(self, i, j, value):
+        if value is not None:
+            self._A[i][j] = value
+
+    @property
+    def b(self):
+        return self._b
+
+    def set_b(self, i, value):
+        if value is not None:
+            self._b[i][0] = value
 
 
 class BasicSolver(ABC):
@@ -90,4 +141,3 @@ class SimpleIterationSolver(BasicSolver):
             # print([val for val in x], d)
             if d < self.eps:
                 break
-
