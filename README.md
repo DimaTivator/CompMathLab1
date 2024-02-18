@@ -3,7 +3,7 @@
 ---
 ### Restrictions 
 - The matrix shouldn't be singular, so $det(A) \ne 0$
-- The matrix should be diagonally dominant. There should exist such permutation of its columns so that $|a_{ii}| \le \sum_{j \ne i} |a_{ij}|, i = 1, 2, ..., n$ 
+- The matrix should be diagonally dominant. There should exist such permutation of its columns so that $|a_{ii}| \le \sum_{j \ne i} |a_{ij}|$  $, i = 1, 2, ..., n$ 
 ---
 ### GUI Instruction
 #### 1. Manual Input
