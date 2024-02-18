@@ -2,7 +2,7 @@
 - This repository provides the implementation of Simple-Iteration SOLE-solver with GUI (soon) on native Python + QT5 
 ---
 ### Restrictions 
-- The matrix shouldn't be singular, so $det(A) \not 0$
+- The matrix shouldn't be singular, so $det(A) \ne 0$
 - The matrix should be diagonally dominant. There should exist such permutation of its columns so that $|a_{ii}| \le \sum_{j \ne i} |a_{ij}|, i = 1, 2, ..., n$ 
 ---
 ### GUI Instruction
