@@ -5,6 +5,7 @@ from ._criterion import (
 )
 
 from ._sole import (
-    SimpleIterationSolver
+    SoleData,
+    SimpleIterationSolver,
 )
 
