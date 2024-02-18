@@ -1,5 +1,5 @@
 ### Simple-Iteration SOLE-solver $Ax = b$
-- This repository provides the implementation of Simple-Iteration SOLE-solver with GUI (soon) on native Python + QT5 
+- This repository provides an implementation of Simple-Iteration SOLE-solver with GUI on native Python + QT5 
 ---
 ### Restrictions 
 - The matrix shouldn't be singular, so $det(A) \ne 0$
