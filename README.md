@@ -19,6 +19,6 @@
 - File format:
 - - Your file should contain only numerical values 
 - - The first number in the file is n - the matrix size
-- - Then there should be $n^2 + n$ numbers with any number of whitespaces and indents
+- - Then there should be $n^2 + n$ numbers with any number of whitespaces and indents (first $n^2$ numbers for matrix A and last n - for vector b)
 - Enter accuracy value and convergence criterion (read `Manual Input instruction`)
 - Click `solve`
