@@ -63,10 +63,12 @@ class SimpleIterationApp(QMainWindow):
         self.load_button.clicked.connect(self.load_file)
 
     def solve(self):
-        solver = SimpleIterationSolver(eps=self.eps, criterion=self.criterion)
-
         try:
+            solver = SimpleIterationSolver(eps=self.eps, criterion=self.criterion)
             self.history = solver.solve(A=sole.A, b=sole.b)
+            res = self.history[-1][1]
+            if res > self.eps:
+                QMessageBox.warning(self, 'Error', str('Method did not converge'))
         except ValueError as e:
             QMessageBox.warning(self, 'Error', str(e))
             return
